@@ -1,0 +1,24 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title"> Add new Group</h1>
+    <div class="h1 title">Header Buttons</div>
+    <button class="button button-clear button-positive" ng-click="closeModal()">Back</button>
+  </ion-header-bar>
+  <ion-content>
+    <div class="list">
+      <label class="item item-input">
+        <span class="input-label">Group Name</span>
+        <input ng-show="group.name!=null" type="text" placeholder="group.name" ng-model="group.name">
+        <input ng-show="group.name==null" type="text" placeholder="Group Name" ng-model="group.name">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Description</span>
+        <input type="text" name="description" ng-model="group.description" >
+      </label>
+      <button class="button button-block button-positive" ng-click="sendNewGroupToServer()">
+        Add new Group
+      </button>
+    </div>
+  </ion-content>
+</ion-modal-view>
+

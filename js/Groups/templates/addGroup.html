@@ -1,0 +1,20 @@
+<ion-view view-title="Add new Group" >
+  <ion-content scroll="false" ng-controller="AddGroupCtrl">
+    <div class="list">
+      <label class="item item-input">
+        <span class="input-label">Group Name</span>
+        <input type="text" ng-model="group.name">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Description</span>
+        <textarea style="height: 80px" ng-model="group.description"></textarea>
+      </label>
+    </div>
+    <button class="button button-block button-positive" ng-click="addNewGroup()">
+      Add new Group
+    </button>
+  </ion-content>
+</ion-view>
+
+
+<!-- name description admin_token user_token -->

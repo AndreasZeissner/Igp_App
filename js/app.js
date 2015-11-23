@@ -4,10 +4,12 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('starter', ['ionic', 'LoginModule', 'UserModule', 'UsergroupsModule', 'GroupModule', 'AppointmentModule'])
 
-.run(function($ionicPlatform) {
+.constant('Server', 'http://192.168.56.140:3000/api/v1')
+.run(function($ionicPlatform, LoginService) {
   $ionicPlatform.ready(function() {
+
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -20,18 +22,18 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       StatusBar.styleDefault();
     }
   });
+
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
   $stateProvider
 
     .state('app', {
     url: '/app',
     abstract: true,
     templateUrl: 'templates/menu.html',
-    controller: 'AppCtrl'
   })
-
+  // searching for specific group
   .state('app.search', {
     url: '/search',
     views: {
@@ -40,7 +42,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     }
   })
-
+  // maybe what is brand new atm?
   .state('app.browse', {
       url: '/browse',
       views: {
@@ -49,25 +51,45 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
-    .state('app.playlists', {
-      url: '/playlists',
+
+    .state('app.home', {
+      cache: false,
+      url: '/home',
       views: {
         'menuContent': {
-          templateUrl: 'templates/playlists.html',
-          controller: 'PlaylistsCtrl'
+          templateUrl: 'templates/home.html',
+        },
+      }
+    })
+    .state('app.group', {
+      url: '/home/groupappointment/:appointment_id',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/singleGroup.html',
         }
       }
     })
-
+    .state('app.addgroup', {
+      url: '/home/addgroup',
+      views: {
+        'menuContent': {
+          templateUrl: 'js/Groups/templates/addGroup.html',
+        }
+      }
+    })
   .state('app.single', {
     url: '/playlists/:playlistId',
     views: {
       'menuContent': {
         templateUrl: 'templates/playlist.html',
-        controller: 'PlaylistCtrl'
       }
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/group');
+
+
+
+    $httpProvider.defaults.headers.post["Content-Type"] = "application/json";
+    $httpProvider.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 });
