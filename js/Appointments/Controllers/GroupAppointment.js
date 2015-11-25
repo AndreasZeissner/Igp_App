@@ -6,5 +6,6 @@ angular.module('AppointmentModule')
     function (Server, $http, $scope, AppointmentService,  $stateParams) {
     AppointmentService($stateParams.appointment_id, function (data) {
       $scope.viewData = data;
+      console.log(data);
     });
   }]);

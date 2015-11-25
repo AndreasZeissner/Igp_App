@@ -1,0 +1,28 @@
+<ion-view view-title="Groups">
+  <ion-content ng-controller="GroupsCtrl">
+    <ul class="list">
+      <li class="item" ng-repeat="entry in groups"style="padding: 0" >
+        <a  href="#/app/home/groupappointment/{{entry.id}}" style="text-decoration: none; color: black">
+          <div class="row" style="padding: 0">
+            <div class="col col-50" style="padding: 0">
+              <p> Groupname: </p>
+              {{ entry.name }}
+            </div>
+            <div class="col col-50" style="padding: 0">
+              <p> Description: </p>
+              <textarea>{{ entry.description }} </textarea>
+            </div>
+          </div>
+        </a>
+          <div class="row">
+            <div class="col col-50 col-offset-25">
+              <button class="button button-outline button-positive" style="width:100%" ng-click="joinGroup(entry.id)">
+                Join Group
+              </button>
+            </div>
+          </div>
+
+      </li>
+    </ul>
+  </ion-content>
+</ion-view>

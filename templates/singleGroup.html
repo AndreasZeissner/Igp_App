@@ -1,22 +1,46 @@
 <ion-view view-title="Group">
   <ion-content scroll="false" style="z-index: 1000; height: 80px; background-color: lightgrey; box-shadow: 0px 0px 5px 7px" ng-controller="InitGroupCtrl">
-    <button class="button button-block button-positive"  ui-sref="app.addAppointment">
+    <button class="button button-block button-positive"> <!-- ui-sref="app.addAppointment" -->
       Add new Appointment
     </button>
   </ion-content>
   <div ng-controller="GroupAppointmentCtrl">
     <ion-content style="padding-top: 100px; z-index: 1" ng-controller="GroupCtrl">
-      <div class="card" ng-repeat="entry in viewData" >
-        <!--<a  href="#/app/home/groupappointment/{{entry.id}}" style="text-decoration: none">-->
-          <div class="item item-divider">
-            {{ entry.name }}
+      <ul class="list"  >
+        <li ng-repeat="entry in viewData">
+            <div class="item item-divider" style="padding: 0">
+              <div class="row" style="padding: 0">
+                <div class="col col-50">
+                  {{ entry.name }}
+                </div>
+                <div class="col col-50">
+                  <i class="ion-android-contact" style="padding-right: 20px"></i>    {{ entry.contact }}
+                </div>
+            </div>
           </div>
-          <div class="item item-text-wrap">
-            {{ entry.description }}
-          </div>
-        <!--</a>-->
-      </div>
-  </div>
+          <div class="item item-text-wrap" style="padding: 0">
+            <div class="row" style="padding: 0">
+              <div class="col col-50">
+                {{ entry.description }}
+                <br>
+                <span style="vertical-align: baseline">
+                  <p style="text-align: center">
+                    <i class="ion-bowtie" > </i> {{entry.dresscode}}
+                  </p>
+                </span>
+                </div>
+                <div class="col col-50">
+                  <i class="ion-ios-location-outline" style="padding-right: 10px; padding-left: 3px; color: green"></i> {{ entry.location}}
+                  <br>
+                  <i class="ion-ios-time-outline" style="padding-right: 10px"></i>{{ entry.startdate }}
+                  <br>
+                  <i class="ion-ios-time" style="padding-right: 10px"></i>{{ entry.enddate }}
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+    </div>
   </ion-content>
 </ion-view>
 

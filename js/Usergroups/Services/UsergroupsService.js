@@ -14,5 +14,15 @@ angular.module('UsergroupsModule')
 
       }
     });
+    Usergroup.prototype.joinGroup = function (id) {
+      this.user_id = LoginFactory.getUserId();
+      this.group_id = id;
+
+      this.$save({
+
+      }, function (data) {
+        console.log(data)
+      })
+    }
     return Usergroup;
   }]);

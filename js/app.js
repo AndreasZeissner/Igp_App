@@ -77,14 +77,16 @@ angular.module('starter', ['ionic', 'LoginModule', 'UserModule', 'UsergroupsModu
         }
       }
     })
-  .state('app.single', {
-    url: '/playlists/:playlistId',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/playlist.html',
+    .state('app.groups', {
+      url: '/groups',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/groups.html'
+        }
       }
-    }
-  });
+    })
+  ;
+
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/group');
 
