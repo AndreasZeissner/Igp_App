@@ -1,0 +1,21 @@
+<ion-view view-title="Dashboard" >
+  <ion-content scroll="false" style="z-index: 1000; height: 80px; background-color: lightgrey; box-shadow: 0px 0px 5px 7px">
+    <button class="button button-block button-positive"  ui-sref="app.addgroup">
+      Add new Group
+    </button>
+  </ion-content>
+
+  <ion-content style="padding-top: 100px; z-index: 1" ng-controller="homeController as vm">
+    <div class="card" ng-repeat="entry in vm.igpGroups" >
+      <a  href="#/app/home/groupappointment/{{entry.id}}" style="text-decoration: none">
+        <div class="item item-divider">
+          {{ entry.name }}
+        </div>
+        <div class="item item-text-wrap">
+          {{ entry.description }}
+        </div>
+      </a>
+    </div>
+  </ion-content>
+</ion-view>
+
