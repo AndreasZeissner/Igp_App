@@ -4,18 +4,23 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'LoginModule', 'UserModule', 'UsergroupsModule', 'GroupModule', 'AppointmentModule'])
+angular.module('starter', ['ionic',
+  'AppModule',
+  'LoginModule',
+  'UserModule',
+  'AppointmentModule'
+  ])
 
 .constant('Server', 'http://192.168.56.140:3000/api/v1')
-.run(function($ionicPlatform, LoginService) {
-  $ionicPlatform.ready(function() {
+.run(function($ionicPlatform, LoginFactory, NavigaterHelper) {
+  $ionicPlatform.ready(function($state) {
+    // always go to the login state, call its controller and decide what to do there!
+    NavigaterHelper.setState('login');
 
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
+
     if (window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
-
     }
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
@@ -41,6 +46,18 @@ angular.module('starter', ['ionic', 'LoginModule', 'UserModule', 'UsergroupsModu
         templateUrl: 'templates/search.html'
       }
     }
+  })
+    /*
+    * Login state
+    *
+    * app.login
+    *
+    * is called whenever no user is set in local storage
+    * see app.js run
+    * */
+  .state('login', {
+      url: '/login',
+      templateUrl: 'js/Login/templates/login.view.html'
   })
   // maybe what is brand new atm?
   .state('app.browse', {

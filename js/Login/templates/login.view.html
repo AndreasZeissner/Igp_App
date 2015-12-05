@@ -1,0 +1,57 @@
+<ion-view view-title="Login" ng-controller="CheckLogin">
+    <ion-header-bar ng-controller="CheckLogin">
+      <h1 class="title">Login</h1>
+      <div class="buttons">
+      </div>
+    </ion-header-bar>
+  <ion-content class="has-header" scroll="false">
+    <div ng-controller="LoginControllerJP as vm">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Username</span>
+          <input type="text" ng-model="vm.credentials.username">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Password</span>
+          <input type="password" ng-model="vm.credentials.password">
+        </label>
+        <label ng-if="!signin" class="item">
+          <button class="button button-block button-positive" ng-click="vm.login()">Log in</button>
+        </label>
+        <!-- sign in part -->
+        <div ng-if="signin">
+          <label  class="item item-input">
+            <span class="input-label">Email</span>
+            <input type="email" ng-model="vm.credentials.email">
+          </label>
+          <label  class="item item-input">
+            <span class="input-label">Forname</span>
+            <input type="text" ng-model="vm.credentials.forname">
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Surname</span>
+            <input type="text" ng-model="vm.credentials.surname">
+          </label>
+          <label  class="item item-input">
+            <span class="input-label">Handy</span>
+            <input type="text" ng-model="vm.credentials.mobilephone">
+          </label>
+          <label class="item">
+            <button class="button button-block button-positive" ng-click="vm.signUp()">Sign up</button>
+          </label>
+        </div>
+        <div ></div>
+        <div class="row" >
+          <div class="col col-25 col-offset-75">
+            <button ng-hide="signin" class="button button-clear button-positive" ng-click="signin = !signin">
+              Sign Up?
+            </button>
+            <button ng-hide="!signin" class="button button-clear button-positive" ng-click="signin = !signin">
+              Login?
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

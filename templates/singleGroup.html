@@ -1,11 +1,11 @@
 <ion-view view-title="Group">
-  <ion-content scroll="false" style="z-index: 1000; height: 80px; background-color: lightgrey; box-shadow: 0px 0px 5px 7px" ng-controller="InitGroupCtrl">
+  <ion-content scroll="false" style="z-index: 1000; height: 80px; background-color: lightgrey; box-shadow: 0px 0px 5px 7px">
     <button class="button button-block button-positive"> <!-- ui-sref="app.addAppointment" -->
       Add new Appointment
     </button>
   </ion-content>
   <div ng-controller="GroupAppointmentCtrl">
-    <ion-content style="padding-top: 100px; z-index: 1" ng-controller="GroupCtrl">
+    <ion-content style="padding-top: 100px; z-index: 1">
       <ul class="list"  >
         <li ng-repeat="entry in viewData">
             <div class="item item-divider" style="padding: 0">

@@ -2,9 +2,8 @@
  * Created by WangoeWoe on 20.11.15.
  */
 angular.module('LoginModule')
-  .service('LoginService', ['$window', '$ionicModal', '$rootScope','LoginFactory',
-    function ($window, $ionicModal, $rootScope, LoginFactory) {
-      console.log(LoginFactory.getLoggedIn())
+  .service('LoginService', ['$window', '$ionicModal', '$rootScope','LoginFactory', '$state',
+    function ($window, $ionicModal, $rootScope, LoginFactory, $state) {
       if(!LoginFactory.getLoggedIn()) {
         $ionicModal.fromTemplateUrl('js/Login/templates/loginModal.html', {
           scope: $rootScope,

@@ -2,8 +2,9 @@
  * Created by WangoeWoe on 20.11.15.
  */
 angular.module('LoginModule')
-  .factory('LoginFactory', ['$http', 'Server', '$window','$timeout', '$rootScope',function ($http, Server, $window, $timeout, $rootScope) {
-    $window.localStorage['password'] = JSON.stringify('Hase123');
+  .factory('LoginFactory', ['$http', 'Server', '$window','$timeout', '$rootScope', '$state',
+    function ($http, Server, $window, $timeout, $rootScope, $state) {
+
     var setUserId     = function (value) {
       $window.localStorage['user_id'] = JSON.stringify(value);
       console.log("Done Writing into Local Storage");
