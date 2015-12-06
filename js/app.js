@@ -109,5 +109,6 @@ angular.module('starter', ['ionic',
 
 
     $httpProvider.defaults.headers.post["Content-Type"] = "application/json";
+    console.log($httpProvider.defaults.headers);
     $httpProvider.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 });
