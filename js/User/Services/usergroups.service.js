@@ -18,26 +18,15 @@
   * */
 
     function UserGroups (Server, $resource, UserServiceREF) {
-    this.Ressource = $resource(Server + '/usergroups', {user_id: '@id'} ,{
-      get: {
-        // WORKAROUND LOOK AT CONSOLE LOG!
-        isArray: false,
-        headers: {
-          user_id: UserServiceREF.getUserId()
+      this.Ressource = $resource(Server + '/usergroups', {user_id: '@id'} ,{
+        get: {
+          // WORKAROUND LOOK AT CONSOLE LOG!
+          isArray: false,
+          headers: {
+            user_id: UserServiceREF.getUserId()
+          }
+
         }
-
-      }
-    });
-      this.Ressource.prototype.joinGroup = function (id) {
-        // EVTL this.Ressource
-        this.user_id = UserServiceREF.getUserId();
-        this.group_id = id;
-        this.$save({
-        }, function (data) {
-          console.log(data)
-        })
-
-
-      }
+      });
     }
 })();
