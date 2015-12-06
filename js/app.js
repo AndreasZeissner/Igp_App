@@ -50,14 +50,7 @@ angular.module('starter', [
       templateUrl: 'js/Login/templates/login.view.html'
   })
   // maybe what is brand new atm?
-  .state('app.browse', {
-      url: '/browse',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/browse.html'
-        }
-      }
-    })
+
 
     .state('app.home', {
       cache: false,
@@ -73,6 +66,15 @@ angular.module('starter', [
       views: {
         'menuContent': {
           templateUrl: 'js/AppModule/Templates/singlegroup.view.html',
+        }
+      }
+    })
+    .state('app.addappointment', {
+      url: '/home/groupappointment/addappointment/:group_id',
+      cache: false,
+      views: {
+        'menuContent': {
+          templateUrl: 'js/AppModule/Templates/addappointment.view.html'
         }
       }
     })

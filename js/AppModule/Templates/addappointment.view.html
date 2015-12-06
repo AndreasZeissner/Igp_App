@@ -1,0 +1,51 @@
+/**
+* Created by WangoeWoe on 06.12.15.
+*/
+<ion-view>
+  <ion-header-bar>
+    <h1 class="title"> Add new Appointment </h1>
+  </ion-header-bar>
+  <ion-content ng-controller="addAppointmentController as vm">
+    <div class="list">
+      <label class="item item-input">
+        <span class="input-label">Name</span>
+        <input type="text" placeholder="New Groupname" ng-model="vm.appointment.name">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Description</span>
+        <textarea type="text" placeholer="Description" ng-model="vm.appointment.description"> </textarea>
+      </label>
+
+      <div class="row">
+        <div class="col col-50">
+          <p> Startdate </p>
+          <label class="item item-input">
+            <input type="date" placeholder="New Groupname" ng-model="vm.appointment.startdate">
+          </label>
+        </div>
+        <div class="col col-50">
+          <p> Enddate </p>
+          <label class="item item-input">
+            <input type="date" ng-model="vm.appointment.enddate">
+          </label>
+        </div>
+      </div>
+
+      <label class="item item-input">
+        <span class="input-label">Location</span>
+        <input type="text" ng-model="vm.appointment.location">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Dresscode</span>
+        <input type="text" ng-model="vm.appointment.dresscode">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Contact</span>
+        <input type="text" ng-model="vm.appointment.contact">
+      </label>
+      <button class="button button-block button-positive" ng-click="vm.addAppointment()">
+        Add Appointment
+      </button>
+    </div>
+  </ion-content>
+</ion-view>

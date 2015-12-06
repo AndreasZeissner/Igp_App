@@ -16,7 +16,7 @@
     function AppointmentHandler (LeaveGroupService, NavigaterHelper, $stateParams) {
       var vm = this;
       vm.leaveGroup = leaveGroup;
-
+      vm.group_id = $stateParams.group_id;
       function leaveGroup () {
         LeaveGroupService.leave($stateParams.group_id, function () {
           NavigaterHelper.goBack();
