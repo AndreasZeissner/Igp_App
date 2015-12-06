@@ -12,7 +12,7 @@
   *
   * */
 
-  function addGroupCtrl (GroupService) {
+  function addGroupCtrl (GroupService, JoinGroup, NavigaterHelper) {
     var vm = this;
 
     vm.createNewGroup = createNewGroup;
@@ -22,8 +22,11 @@
     }
 
     function createNewGroup () {
-      // TODO: User must join the group
-      GroupService.createNewGroup(vm.group.name, vm.group.description);
+      GroupService.createNewGroup(vm.group.name, vm.group.description, function (group) {
+        JoinGroup.join(group.data.id);
+        NavigaterHelper.goBack();
+      });
+      // TODO: Go back to home screen!
     }
   }
 })();

@@ -14,7 +14,7 @@
   *
   * */
 
-  function NavigaterHelper ($state) {
+  function NavigaterHelper ($state, $ionicHistory) {
     var NavigaterHelper;
 
     NavigaterHelper = function () {
@@ -23,6 +23,9 @@
     NavigaterHelper.prototype.setState = function (state){
         $state.go(state, {},  {reload: true}).then(function ($state) {
         })
+    }
+    NavigaterHelper.prototype.goBack = function () {
+      $ionicHistory.goBack();
     }
     return new NavigaterHelper();
 

@@ -14,12 +14,12 @@
    * */
 
   function GroupService (Server, $resource, $http) {
-    this.createNewGroup = function (name, description) {
+    this.createNewGroup = function (name, description, callback) {
       $http.post(Server + '/groups', {
         name: name,
         description: description
       }).then(function (data) {
-        console.log(data);
+        callback(data);
       })
     }
   }

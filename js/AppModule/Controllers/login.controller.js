@@ -11,11 +11,11 @@
     .module('AppModule')
     .controller('LoginControllerJP', login);
 
-  function login (LoginServiceREF) {
+  function login (LoginServiceREF, AddUserService) {
     var vm = this;
-
+    //
     vm.login = login;
-    vm.signup = signup;
+    vm.signUp = signUp;
     vm.credentials = {
       username: null,
       password: null,
@@ -25,7 +25,7 @@
       mobilephone: null
     }
 
-    function signup () {
+    function signUp () {
       /*
        * call api
        *   login -> POST Signup
@@ -38,7 +38,9 @@
       } else if ( vm.credentials.forname === null ||  vm.credentials.surname === null ) {
         console.log("Forname or Surname not set");
       } else {
-        // call for signup api !
+        AddUserService.signup(vm.credentials.username, vm.credentials.password, vm.credentials.email, vm.credentials.forname, vm.credentials.surname, vm.credentials.mobilephone);
+        // TODO: Handle this in a callback. For now it is not checked, if the user is present already
+        LoginServiceREF.checkLogin(vm.credentials.username, vm.credentials.password);
       }
     }
     function login () {

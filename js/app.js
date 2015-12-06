@@ -6,13 +6,12 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic',
   'AppModule',
-  'LoginModule',
   'UserModule',
   'AppointmentModule'
   ])
-
+  // TODO: Constants to uppercase
 .constant('Server', 'http://192.168.56.140:3000/api/v1')
-.run(function($ionicPlatform, LoginFactory, NavigaterHelper) {
+.run(function($ionicPlatform, NavigaterHelper) {
   $ionicPlatform.ready(function($state) {
     // always go to the login state, call its controller and decide what to do there!
     NavigaterHelper.setState('login');
@@ -74,7 +73,7 @@ angular.module('starter', ['ionic',
       url: '/home',
       views: {
         'menuContent': {
-          templateUrl: 'templates/home.html',
+          templateUrl: 'js/AppModule/Templates/home.view.html',
         },
       }
     })
@@ -90,7 +89,7 @@ angular.module('starter', ['ionic',
       url: '/home/addgroup',
       views: {
         'menuContent': {
-          templateUrl: 'js/Groups/templates/addGroup.html',
+          templateUrl: 'js/AppModule/Templates/addGroup.view.html',
         }
       }
     })
@@ -105,7 +104,7 @@ angular.module('starter', ['ionic',
   ;
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/group');
+  $urlRouterProvider.otherwise('/login');
 
 
 
