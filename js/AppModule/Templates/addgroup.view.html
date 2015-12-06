@@ -1,0 +1,23 @@
+/**
+ * Created by WangoeWoe on 05.12.15.
+ */
+<ion-view>
+  <ion-header-bar>
+    <h1 class="title"> Add new Group</h1>
+  </ion-header-bar>
+  <ion-content ng-controller="addgroupController as vm">
+    <div class="list">
+      <label class="item item-input">
+        <span class="input-label">Group Name</span>
+      <input type="text" placeholder="New Groupname" ng-model="vm.group.name">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Description</span>
+        <textarea type="text" placeholer="Description" ng-model="vm.group.description"> </textarea>
+      </label>
+      <button class="button button-block button-positive" ng-click="vm.createNewGroup()">
+        Add new Group
+      </button>
+    </div>
+  </ion-content>
+</ion-view>
