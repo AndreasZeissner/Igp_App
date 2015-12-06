@@ -1,8 +1,18 @@
 <ion-view view-title="Group">
-  <ion-content scroll="false" style="z-index: 1000; height: 80px; background-color: lightgrey; box-shadow: 0px 0px 5px 7px">
-    <button class="button button-block button-positive"> <!-- ui-sref="app.addAppointment" -->
-      Add new Appointment
-    </button>
+  <!-- TODO: New controller ! -->
+  <ion-content scroll="false" style="z-index: 1000; height: 80px; background-color: lightgrey; box-shadow: 0px 0px 5px 7px" ng-controller="AppointmentHandlerController as vm">
+    <div class="row">
+      <div class="col col-50">
+        <button class="button button-block button-positive">
+          New Appointment
+        </button>
+      </div>
+      <div class="col col-50">
+        <button class="button button-block button-positive" ng-click="vm.leaveGroup()">
+         Leave Group
+        </button>
+      </div>
+    </div>
   </ion-content>
   <div>
     <ion-content style="padding-top: 100px; z-index: 1" ng-controller="getAppointmentsController as vm">

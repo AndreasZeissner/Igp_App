@@ -12,17 +12,14 @@
     *
     * */
 
-    function homeController (UserGroupService, LeaveGroupService) {
+    function homeController (UserGroupService) {
       var vm = this;
       vm.igpGroups;
-      vm.leaveGroup = leaveGroup;
 
       UserGroupService.Ressource.get(function (data) {
           vm.igpGroups = data.igp_groups;
       });
-      function leaveGroup (group_id) {
-        LeaveGroupService.leave(group_id);
-        }
+
       }
 
 })();
