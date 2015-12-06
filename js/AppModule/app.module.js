@@ -4,5 +4,6 @@
 angular.module('AppModule', [
   'UserModule',
   'LoginModule',
-  'SignupModule'
+  'SignupModule',
+  'GroupModule'
 ]);

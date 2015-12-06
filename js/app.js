@@ -4,10 +4,9 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic',
-  'AppModule',
-  'UserModule',
-  'AppointmentModule'
+angular.module('starter', [
+  'ionic',
+  'AppModule'
   ])
   // TODO: Constants to uppercase
 .constant('Server', 'http://192.168.56.140:3000/api/v1')
@@ -38,14 +37,6 @@ angular.module('starter', ['ionic',
     templateUrl: 'templates/menu.html',
   })
   // searching for specific group
-  .state('app.singlegroup', {
-    url: '/home/singlegroup/:group_id',
-    views: {
-      'menuContent': {
-        templateUrl: 'js/AppModule/Templates/singlegroup.view.html'
-      }
-    }
-  })
     /*
     * Login state
     *
@@ -78,10 +69,10 @@ angular.module('starter', ['ionic',
       }
     })
     .state('app.group', {
-      url: '/home/groupappointment/:appointment_id',
+      url: '/home/groupappointment/:group_id',
       views: {
         'menuContent': {
-          templateUrl: 'templates/singleGroup.html',
+          templateUrl: 'js/AppModule/Templates/singlegroup.view.html',
         }
       }
     })
