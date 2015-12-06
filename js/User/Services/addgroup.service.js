@@ -13,11 +13,12 @@
    *
    * */
 
-  function GroupService (Server, $resource, $http) {
+  function GroupService (Server, $resource, $http, UserServiceREF) {
     this.createNewGroup = function (name, description, callback) {
       $http.post(Server + '/groups', {
         name: name,
-        description: description
+        description: description,
+        user_id: UserServiceREF.getUserId()
       }).then(function (data) {
         callback(data);
       })

@@ -25,7 +25,6 @@
           headers: {
             user_id: UserServiceREF.getUserId()
           }
-
         }
       });
     }

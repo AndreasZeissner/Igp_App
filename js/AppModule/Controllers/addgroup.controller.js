@@ -23,10 +23,8 @@
 
     function createNewGroup () {
       GroupService.createNewGroup(vm.group.name, vm.group.description, function (group) {
-        JoinGroup.join(group.data.id);
         NavigaterHelper.goBack();
       });
-      // TODO: Go back to home screen!
     }
   }
 })();
