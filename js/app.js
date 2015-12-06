@@ -38,11 +38,11 @@ angular.module('starter', ['ionic',
     templateUrl: 'templates/menu.html',
   })
   // searching for specific group
-  .state('app.search', {
-    url: '/search',
+  .state('app.singlegroup', {
+    url: '/home/singlegroup/:group_id',
     views: {
       'menuContent': {
-        templateUrl: 'templates/search.html'
+        templateUrl: 'js/AppModule/Templates/singlegroup.view.html'
       }
     }
   })
