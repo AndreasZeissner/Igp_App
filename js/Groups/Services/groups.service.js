@@ -1,22 +1,23 @@
 /**
- * Created by WangoeWoe on 22.11.15.
+ * Created by WangoeWoe on 07.12.15.
  */
+(function () {
 
-angular.module('GroupModule')
-  .factory('GroupsService', ['Server','$resource', '$http', 'LoginFactory',
-    function (Server, $resource, $http, LoginFactory) {
-      var url = Server + '/groups';
-      var Group = $resource(url , null, {});
-      // This is a workaround, as the service will give me a value.push is not a functioon otherwise
-      Group.prototype.getAll = function (callback) {
-      $http.get(url, {
-        headers: {
-          user_id: LoginFactory.getUserId()
-        }
-      })
-        .success(function (data) {
-        callback(data)
+  angular
+    .module('GroupModule')
+    .service('GetGroupsService', GetAllGroups);
+
+    /*
+    *
+    *
+    * */
+
+    function GetAllGroups (Server, $http) {
+      this.getAll = function (callback) {
+        $http.get(Server + '/groups')
+          .then(function (data) {
+            callback(data.data);
         })
+      }
     }
-    return Group;
-  }]);
+})();

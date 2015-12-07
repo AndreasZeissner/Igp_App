@@ -1,0 +1,25 @@
+/**
+* Created by WangoeWoe on 07.12.15.
+*/
+<ion-view>
+  <ion-header-bar>
+    <h1 class="title"> Groups </h1>
+  </ion-header-bar>
+  <ion-content ng-controller="GetAllGroupsController as vm">
+    <div class="list list-inset">
+      <div class="item" ng-repeat="entry in vm.groups">
+        <div class="row">
+          <div class="col col-50">
+            <h3> {{entry.name }}</h3>
+            <p> {{ entry.description }}</p>
+          </div>
+          <div class="col col-50">
+            <button class="button button-stable" ng-click="vm.joinGroup( {{ entry.id }} )">
+              Join Group
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

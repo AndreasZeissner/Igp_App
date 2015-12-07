@@ -91,7 +91,7 @@ angular.module('starter', [
       url: '/groups',
       views: {
         'menuContent': {
-          templateUrl: 'templates/groups.html'
+          templateUrl: 'js/AppModule/Templates/groups.view.html'
         }
       }
     })
@@ -103,6 +103,5 @@ angular.module('starter', [
 
 
     $httpProvider.defaults.headers.post["Content-Type"] = "application/json";
-    console.log($httpProvider.defaults.headers);
     $httpProvider.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 });
