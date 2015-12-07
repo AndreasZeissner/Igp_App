@@ -12,7 +12,7 @@
   *
   * */
 
-  function addAppointment ($stateParams, AddAppointmentService, NavigaterHelper) {
+  function addAppointment ($stateParams, AddAppointmentService, NavigaterHelper,  $ionicLoading) {
     var vm = this;
     vm.addAppointment = addAppointment;
     vm.appointment = {
@@ -27,8 +27,9 @@
     }
 
     function addAppointment () {
-      AddAppointmentService.addAppointment(vm.appointment, function () {
+      AddAppointmentService.addAppointment(vm.appointment, function (data) {
         NavigaterHelper.goBack();
+        console.log(data);
       })
     }
   }

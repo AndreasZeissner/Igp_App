@@ -63,6 +63,7 @@ angular.module('starter', [
     })
     .state('app.group', {
       url: '/home/groupappointment/:group_id',
+      cache: false,
       views: {
         'menuContent': {
           templateUrl: 'js/AppModule/Templates/singlegroup.view.html',

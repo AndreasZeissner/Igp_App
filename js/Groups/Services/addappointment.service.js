@@ -12,9 +12,9 @@
     *
     * */
 
-    function addAppointment (Server, $http) {
+    function addAppointment (Server, $http, $timeout) {
+
       this.addAppointment = function (appointment, callback) {
-        console.log(appointment);
         $http.post(Server + '/appointments', {
           name:           appointment.name,
           description:    appointment.description,
@@ -24,10 +24,12 @@
           dresscode:      appointment.dresscode,
           contact:        appointment.contact,
           group_id:       appointment.igpGroupId
-        }).then(function (data) {
-          // TODO: Wait for Server!
-          callback(data);
-        })
+        }).success(function (data) {
+              callback(data);
+        }).error(function (error, code) {
+          console.log(error)
+          console.log(code)
+        });
       }
     }
 })();
