@@ -9,9 +9,14 @@
           </button>
         </a>
       </div>
-      <div class="col col-50">
+      <div ng-if="!vm.isAdmin" class="col col-50">
         <button class="button button-block button-positive" ng-click="vm.leaveGroup()">
          Leave Group
+        </button>
+      </div>
+      <div ng-if="vm.isAdmin" class="col col-50">
+        <button class="button button-block button-assertive" ng-click="vm.deleteGroup()">
+          Delete Group
         </button>
       </div>
     </div>
