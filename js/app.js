@@ -95,6 +95,14 @@ angular.module('starter', [
         }
       }
     })
+    .state('app.profile', {
+      url: '/profile',
+      views: {
+        'menuContent': {
+          templateUrl: 'js/AppModule/Templates/profile.view.html'
+        }
+      }
+    })
   ;
 
   // if none of the above states are matched, use this as the fallback

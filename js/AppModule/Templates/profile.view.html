@@ -1,0 +1,25 @@
+<ion-view view-title="Profile" has-header="false">
+  <ion-content scroll="false" ng-controller="GetProfileController as vm">
+    <div class="bar bar-header" style="height: auto">
+      <div class="row" style="margin: 0; padding: 0">
+        <div class="col col-25">
+          <img class="full-image" src="http://roagoldenwest.org/wp-content/uploads/2015/10/no-photo.jpg">
+        </div>
+        <div class="col col-75" style="margin: 0">
+          <p style="text-align: center"> {{ vm.userInformation.username }} </p>
+          <div class="row" style="margin: 0; padding: 0">
+            <div class="col col-33" style="margin: 0; padding: 0">
+              <p style="margin: 0"> {{ vm.userInformation.forname }} </p>
+              <p style="margin: 0"> {{ vm.userInformation.surname }} </p>
+            </div>
+            <div class="col col-66" style="margin: 0; padding: 0">
+              <p><i class="ion-ios-email-outline"></i> {{ vm.userInformation.email }} </p>
+              <p><i class="ion-ios-telephone-outline"></i> {{ vm.userInformation.mobile_phone }} </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
+

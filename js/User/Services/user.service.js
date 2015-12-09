@@ -14,17 +14,19 @@
   *
   * */
 
-  function UserService (LocalStorageES) {
+  function UserService (LocalStorageES, GetUserFactory) {
     // probably a bit a problem, should it be exposed when there are getters and setters?
     this.User = {
       name: null,
       id: null,
       login_token: false
     }
+    var Userdata = null;
     this.initialize = function (id, name) {
       this.setUserId(id);
       this.setUserName(name);
       this.login();
+
     }
     this.getUserName = function () {
       return this.User.name;
@@ -52,6 +54,11 @@
       * All user data needs to be flushed!
       * */
       this.User.login_token = false;
+    }
+    this.getUserInformation = function (callback) {
+      GetUserFactory.getUserById(this.getUserId, function (data) {
+        callback(data);
+      });
     }
 
   }
