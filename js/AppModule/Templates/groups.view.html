@@ -6,20 +6,21 @@
     <h1 class="title"> Groups </h1>
   </ion-header-bar>
   <ion-content ng-controller="GetAllGroupsController as vm">
-    <div class="list list-inset">
-      <div class="item" ng-repeat="entry in vm.groups">
-        <div class="row">
-          <div class="col col-50">
-            <h3> {{entry.name }}</h3>
-            <p> {{ entry.description }}</p>
+    <ion-list class="list">
+        <ion-item class="item" ng-repeat="entry in vm.groups">
+          <div class="row">
+            <div class="col col-50">
+              <h3> {{entry.name }}</h3>
+              <p> {{ entry.description }}</p>
+            </div>
+            <div class="col col-50">
+              <button class="button button-stable" ng-click="vm.joinGroup( {{ entry.id }} )">
+                Join Group
+              </button>
+            </div>
           </div>
-          <div class="col col-50">
-            <button class="button button-stable" ng-click="vm.joinGroup( {{ entry.id }} )">
-              Join Group
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+        </ion-item>
+      <ion-infinite-scroll ng-if="vm.dataAvailable" distance="1%" on-infinite="vm.load(vm.offset)"></ion-infinite-scroll>
+    </ion-list>
   </ion-content>
 </ion-view>

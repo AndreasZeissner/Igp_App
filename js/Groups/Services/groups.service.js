@@ -13,11 +13,16 @@
     * */
 
     function GetAllGroups (Server, $http) {
-      this.getAll = function (callback) {
-        $http.get(Server + '/groups')
-          .then(function (data) {
-            callback(data.data);
-        })
+      this.getAll = function (offset, callback) {
+        $http({
+          method: 'GET',
+          url: Server + '/groups',
+          headers: {
+            offset: offset
+          }
+        }).then(function (data) {
+          callback(data.data);
+        })js
       }
     }
 })();
