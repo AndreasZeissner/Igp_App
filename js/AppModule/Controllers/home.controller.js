@@ -12,11 +12,11 @@
     *
     * */
 
-    function homeController (UserGroupService) {
+    function homeController (UserGroupService, UserServiceREF) {
       var vm = this;
       vm.igpGroups;
 
-      UserGroupService.getUserGroups(function (data) {
+      UserGroupService.getUserGroups(UserServiceREF.getUserId(), function (data) {
           vm.igpGroups = data.igp_groups;
       });
 
