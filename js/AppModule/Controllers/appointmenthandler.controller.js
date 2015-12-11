@@ -27,7 +27,7 @@
         }
       });
       function deleteGroup () {
-        DeleteGroupService.delete($stateParams.group_id, function () {
+        DeleteGroupService.deleteGroupById($stateParams.group_id, function () {
           NavigaterHelper.goBack();
         });
       }
