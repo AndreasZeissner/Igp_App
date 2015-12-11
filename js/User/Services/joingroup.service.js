@@ -5,7 +5,7 @@
 
   angular
     .module('UserModule')
-    .service('JoinGroup', JoinGroup);
+    .factory('JoinGroup', JoinGroup);
 
   /*
   *
@@ -13,7 +13,13 @@
   * */
 
   function JoinGroup (Server, $http, UserServiceREF) {
-    this.join = function (group_id) {
+    var service = {
+      join: join
+    }
+
+    return service;
+
+    function join (group_id) {
       $http.post(Server + '/usergroups', {
         user_id: UserServiceREF.getUserId(),
         group_id: group_id

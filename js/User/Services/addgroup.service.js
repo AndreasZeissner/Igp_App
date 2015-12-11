@@ -5,7 +5,7 @@
 
   angular
     .module('UserModule')
-    .service('GroupService', GroupService);
+    .factory('GroupService', GroupService);
 
   /*
    *  This Service is in the User Module, bc
@@ -14,7 +14,13 @@
    * */
 
   function GroupService (Server, $resource, $http, UserServiceREF) {
-    this.createNewGroup = function (name, description, callback) {
+    var service = {
+      createNewGroup: createNewGroup
+    }
+
+    return service;
+
+    function createNewGroup (name, description, callback) {
       $http.post(Server + '/groups', {
         name: name,
         description: description,

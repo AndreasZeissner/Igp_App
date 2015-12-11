@@ -5,7 +5,7 @@
 
   angular
     .module('UserModule')
-    .service('DeleteGroupService', DeleteGroupService);
+    .factory('DeleteGroupService', DeleteGroupService);
 
   /*
    *
@@ -13,7 +13,13 @@
    * */
 
   function DeleteGroupService (Server, $http, UserServiceREF) {
-    this.delete = function (group_id, callback) {
+    var service = {
+      deleteGroupById: deleteGroupById
+    }
+
+    return service;
+
+    function deleteGroupById (group_id, callback) {
       $http({
         url: Server + '/groups',
         method: 'DELETE',

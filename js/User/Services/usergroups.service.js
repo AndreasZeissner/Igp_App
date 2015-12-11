@@ -24,12 +24,12 @@
 
       return service;
 
-      function getUserGroups (callback) {
+      function getUserGroups (user_id, callback) {
         $http({
           method: 'GET',
           url: Server + '/usergroups',
           headers: {
-            user_id: UserServiceREF.getUserId()
+            user_id: user_id
           }
         }).then(function (data) {
           callback(data.data);

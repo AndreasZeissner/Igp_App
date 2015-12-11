@@ -5,7 +5,7 @@
 
   angular
     .module('GroupModule')
-    .service('AddAppointmentService', addAppointment);
+    .factory('AddAppointmentService', addAppointment);
 
     /*
     *
@@ -13,8 +13,13 @@
     * */
 
     function addAppointment (Server, $http, $timeout) {
+      var service = {
+        addAppointment: addAppointment
+      }
 
-      this.addAppointment = function (appointment, callback) {
+      return service;
+
+      function addAppointment (appointment, callback) {
         $http.post(Server + '/appointments', {
           name:           appointment.name,
           description:    appointment.description,

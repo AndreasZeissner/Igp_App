@@ -5,7 +5,7 @@
 
   angular
     .module('GroupModule')
-    .service('GetSingleGroup', GetSingleGroup);
+    .factory('GetSingleGroup', GetSingleGroup);
 
     /*
     *
@@ -13,7 +13,13 @@
     * */
 
     function GetSingleGroup (Server, $http) {
-      this.getGroupById = function (group_id, callback) {
+      var service = {
+        getGroupById: getGroupById
+      }
+
+      return service;
+
+      function getGroupById (group_id, callback) {
         $http.get(Server + '/group/' + group_id)
           .success(function (data) {
             callback(data);

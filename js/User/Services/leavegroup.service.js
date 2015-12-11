@@ -5,7 +5,7 @@
 
   angular
     .module('UserModule')
-    .service('LeaveGroupService', LeaveGroupService);
+    .factory('LeaveGroupService', LeaveGroupService);
 
   /*
   *
@@ -13,7 +13,13 @@
   * */
 
   function LeaveGroupService (Server, $http, UserServiceREF) {
-    this.leave = function (group_id, callback) {
+    var service = {
+      leave: leave
+    }
+
+    return service;
+
+    function leave (group_id, callback) {
       $http({
         url: Server + '/usergroups',
         method: 'DELETE',

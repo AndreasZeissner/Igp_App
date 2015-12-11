@@ -5,7 +5,7 @@
 
   angular
     .module('GroupModule')
-    .service('AppointmentServiceES', AppointmentService);
+    .factory('AppointmentServiceES', AppointmentService);
 
   /*
   *
@@ -14,7 +14,13 @@
   * */
 
   function AppointmentService (Server, $http) {
-    this.getAppointments = function (group_id, callback) {
+    var service = {
+      getAppointments: getAppointments
+      }
+
+    return service;
+
+    function getAppointments (group_id, callback) {
       $http.get(Server + '/groupappointment/' + group_id,{
       }).success(function (data) {
         callback(data);
