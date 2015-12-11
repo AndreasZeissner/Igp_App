@@ -5,7 +5,7 @@
 
   angular
     .module('UserModule')
-    .service('UserGroupService', UserGroups)
+    .factory('UserGroupService', UserGroups)
 
   /*
   * Service is quiet ugly.
@@ -17,15 +17,23 @@
   *
   * */
 
-    function UserGroups (Server, $resource, UserServiceREF) {
-      this.Ressource = $resource(Server + '/usergroups', {user_id: '@id'} ,{
-        get: {
-          // WORKAROUND LOOK AT CONSOLE LOG!
-          isArray: false,
+    function UserGroups (Server, $http, UserServiceREF) {
+      var service = {
+        getUserGroups: getUserGroups
+      }
+
+      return service;
+
+      function getUserGroups (callback) {
+        $http({
+          method: 'GET',
+          url: Server + '/usergroups',
           headers: {
             user_id: UserServiceREF.getUserId()
           }
-        }
-      });
+        }).then(function (data) {
+          callback(data.data);
+        })
+      }
     }
 })();

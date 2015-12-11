@@ -16,7 +16,7 @@
       var vm = this;
       vm.igpGroups;
 
-      UserGroupService.Ressource.get(function (data) {
+      UserGroupService.getUserGroups(function (data) {
           vm.igpGroups = data.igp_groups;
       });
 
