@@ -8,7 +8,9 @@
     .factory('JoinGroup', JoinGroup);
 
   /*
-  *
+  * Handles that a user can join groups
+  * and if a user creates a group he will
+  * join it immediatley
   *
   * */
 
