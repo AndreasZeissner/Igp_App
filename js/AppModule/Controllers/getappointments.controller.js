@@ -8,18 +8,16 @@
     .controller('getAppointmentsController', getAppointmentsController);
 
     /*
-    *
+    * Controller for getting the Appointments
     *
     *
     * */
 
     function getAppointmentsController (AppointmentServiceES, $stateParams) {
       var vm = this;
-      console.log($stateParams);
-      // TODO: TEST!
       vm.appointments;
+
       AppointmentServiceES.getAppointments($stateParams.group_id, function (data) {
-        console.log(data);
         vm.appointments = data;
       })
 
